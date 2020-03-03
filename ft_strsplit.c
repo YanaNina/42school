@@ -33,22 +33,43 @@ static int ft_words(char const *s, char c)
 static int ft_wlen(char const *s, charc)
 {
 	int count = 0;
-	while (*s) 
-	   	*s != c)
+	while (*s && *s != c ) 
 	{
 		count++;
-		s++
-
-	
+		s++;
+	}
+	return(count)
+}
 
 char **ft_strsplit(char const *s, char c)
 {
-
+	int i = 0;
+	int j = 0;
 	char **ar;
 	ar = (char**)malloc(sizeof(char*) *(ft_words(s,c) + 1));
 	if (!ar)
 		return NULL;
-	*ar[i]
+	while (*s)
+		{
+		while (*s == c)
+			s++;
+		ar[i] = (char*)malloc(sizeof(char*) * (ft_wlen(s,c) + 1);
+		while (*s != c)
+			s++;
+		s++;
+		i++;
+		}
+	while (s[j] == c)
+		j++;
+	if 
+		
+		
+	
+
+	
+	
+
+		}	  
 
 
 
