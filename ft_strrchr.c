@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/25 18:14:47 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 18:05:20 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
-	char *memo;
+	int i;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	i = 0;
+	while (*s != '\0')
+		s++;
+	s--;
+	while (*s)
+	{
+		if (*s == c)
+			return ((char*)s);
+		s--;
+	}
+	return (0);
 }

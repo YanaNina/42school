@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/25 14:26:52 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 18:03:17 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+size_t	ft_strlcat(char *dst, char *src, size_t n)
 {
-	char *memo;
+	int len;
+	int space;
+	int i;
+	int j;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	len = ft_strlen(dst);
+	space = n - 1 - len;
+	i = 0;
+	j = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[i] != '\0' && j <= space)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(dst) + 1);
 }

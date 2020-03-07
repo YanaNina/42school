@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/27 13:35:15 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 16:53:31 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_putendl(char const *s)
 {
-	char *memo;
-
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	ft_putstr(s);
+	ft_putchar('\n');
 }

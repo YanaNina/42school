@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/28 20:03:04 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 18:01:26 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+int	ft_strequ(char const *s1, char const *s2)
 {
-	char *memo;
-
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
+	if (!s1 || !s2)
 		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	if (ft_strlen((char*)s1) != ft_strlen((char*)s2))
+		return (0);
+	while (*s1 && *s2)
+	{
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
+	}
+	return (1);
 }

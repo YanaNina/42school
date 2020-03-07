@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/03/02 13:11:30 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 18:06:00 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	char *memo;
+	char	*substr;
+	int		i;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
+	i = 0;
+	substr = (char*)malloc(sizeof(*substr) * (len + 1));
+	if (!s || !substr)
 		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	while (s[start] && i < len)
+	{
+		substr[i] = s[start];
+		start++;
+		i++;
+	}
+	substr[i] = '\0';
+	return (substr);
 }

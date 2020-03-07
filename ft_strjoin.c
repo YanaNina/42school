@@ -1,61 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/03 20:34:03 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/05 15:27:16 by ynina            ###   ########.fr       */
+/*   Created: 2020/03/02 15:10:45 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 16:07:12 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		str_length(int n)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int	len;
-
-	i = 0;
-	len = 0;
-	if (n < 0)
-	{
-		len++;
-		n *= -1;
-	}
-	while (n > 9)
-	{
-		n = n / 10;
-		len++;
-	}
-	len++;
-	return (len);
-}
-
-char	*ft_itoa(int n)
-{
+	char	*new_string;
 	int		i;
+	int		j;
 	int		len;
-	char	sign;
-	char	*str;
 
 	i = 0;
-	len = str_length(n);
-	if (!(str = (char*)malloc(sizeof(char) * (str_length(n) + 1))))
-		return (NULL);
-	if (n < 0)
+	j = 0;
+	len = (ft_strlen((char*)s1) + ft_strlen((char*)s2) + 1);
+	new_string = (char*)malloc(sizeof(char) * len);
+	if (!new_string)
+		return (0);
+	while (s1[i])
 	{
-		str[i] = '-';
-		n *= -1;
+		new_string[i] = s1[i];
 		i++;
 	}
-	str[len] = '\0';
-	while (len > i)
+	while (s2[j])
 	{
-		str[len - 1] = 48 + (n % 10);
-		n = n / 10;
-		len--;
+		new_string[i] = s2[j];
+		i++;
+		j++;
 	}
-	return (str);
+	new_string[i] = '\0';
+	return (new_string);
 }

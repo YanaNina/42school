@@ -6,70 +6,66 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:13:50 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/02 20:18:07 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/03 20:32:21 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int ft_words(char const *s, char c)
+static int	ft_words(char const *s, char c)
 {
-	int i = 0;
+	int words;
+
 	words = 0;
-	while (s[i])
+	while (*s)
 	{
-		while (s[i] == c)
-			i++;
-		if (s[i] != c && s[i] != '\0')
+		while (*s == c)
+			s++;
+		if (*s != c && *s != '\0')
 		{
-			while (s[i] != c)
-				i++;
+			while (*s != c)
+				s++;
 			words++;
 		}
-		i++;
+		s++;
 	}
-	return(words);
+	return (words);
+}
 
-static int ft_wlen(char const *s, charc)
+static int	ft_wlen(char const *s, char c)
 {
-	int count = 0;
-	while (*s && *s != c ) 
+	int count;
+
+	count = 0;
+	while (*s && *s != c)
 	{
 		count++;
 		s++;
 	}
-	return(count)
+	return (count);
 }
 
-char **ft_strsplit(char const *s, char c)
+char	**ft_strsplit(char const *s, char c)
 {
-	int i = 0;
-	int j = 0;
-	char **ar;
-	ar = (char**)malloc(sizeof(char*) *(ft_words(s,c) + 1));
-	if (!ar)
-		return NULL;
+	int		i;
+	int		j;
+	char 	**ar;
+
+	i = 0;
+	j = 0;
+	if (!s || (!(ar = (char**)malloc(sizeof(char*) * (ft_words(s, c) + 1)))))
+		return (NULL);
 	while (*s)
-		{
-		while (*s == c)
+	{
+		while (*s && *s == c)
 			s++;
-		ar[i] = (char*)malloc(sizeof(char*) * (ft_wlen(s,c) + 1);
-		while (*s != c)
-			s++;
-		s++;
-		i++;
-		}
-	while (s[j] == c)
+		if (!(ar[j] = (char*)malloc(sizeof(char) * (ft_wlen(s, c) + 1))))
+			return (NULL);
+		while (*s && *s != c)
+			ar[j][i++] = *s++;
+		ar[j][i] = '\0';
 		j++;
-	if 
-		
-		
-	
-
-	
-	
-
-		}	  
-
-
-
+		i = 0;
+	}
+	return (ar);
+}

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/21 11:46:51 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 16:18:29 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strdup(char *s)
 {
-	char *memo;
+	int		i;
+	int		j;
+	char	*s1;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	i = 0;
+	j = 0;
+	while (s[i] != '\0')
+		i++;
+	s1 = (char*)malloc(sizeof(char) * (i + 1));
+	while (s[j] != '\0')
+	{
+		s1[j] = s[j];
+		j++;
+	}
+	return (s1);
 }

@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/24 17:32:56 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 16:46:27 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+char	*ft_strncat(char *dest, char *str, size_t n)
 {
-	char *memo;
+	int i;
+	int j;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (str[j] != '\0' && j < n)
+	{
+		dest[i] = str[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

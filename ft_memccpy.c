@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Created: 2020/02/26 18:20:13 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/03 16:11:12 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	*ft_memccpy(void *restrict dst, const void *restrict src, int c,
+size_t n)
 {
-	char *memo;
+	unsigned char *dest;
+	unsigned char *source;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	dest = (unsigned char*)dst;
+	source = (unsigned char*)src;
+	while (n > 0)
+	{
+		*dest = *source;
+		if (*dest == c)
+		{
+			dest++;
+			return ((void *)dst);
+		}
+		dest++;
+		source++;
+		n--;
+	}
+	return (0);
 }
