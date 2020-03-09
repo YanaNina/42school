@@ -37,7 +37,6 @@ char	*ft_itoa(int n)
 {
 	int		i;
 	int		len;
-	char	sign;
 	char	*str;
 
 	i = 0;

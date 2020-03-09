@@ -14,8 +14,8 @@
 
 char	*ft_strncat(char *dest, char *str, size_t n)
 {
-	int i;
-	int j;
+	size_t i;
+	size_t j;
 
 	i = 0;
 	while (dest[i] != '\0')

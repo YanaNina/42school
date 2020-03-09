@@ -14,11 +14,10 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *memo;
+	char *s = NULL;
 
-	memo = (char*)malloc((*memo) * (size + 1));
-	if (memo == '\0')
-		return (0);
-	ft_bzero(memo, (size + 1));
-	return (memo);
+	if (!(char*)malloc(sizeof(*s) * (size + 1)))
+		return (NULL);
+	ft_bzero(s, size + 1);
+	return (s);
 }
