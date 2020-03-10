@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/05 15:29:59 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/06 16:47:31 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 15:13:47 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *link;
-	
-	if(!(link = (t_list*)malloc(sizeof(*link))))
+
+	if (!(link = (t_list*)malloc(sizeof(*link))))
 		return (NULL);
 	if (content == NULL)
 	{

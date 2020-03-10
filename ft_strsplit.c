@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 18:13:50 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 20:32:21 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 15:19:21 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static int	ft_wlen(char const *s, char c)
 	return (count);
 }
 
-char	**ft_strsplit(char const *s, char c)
+char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;
-	char 	**ar;
+	char	**ar;
 
 	i = 0;
 	j = 0;

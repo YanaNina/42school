@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_numlength.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/06 17:30:28 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/09 15:23:33 by ynina            ###   ########.fr       */
+/*   Created: 2020/03/09 16:00:27 by ynina             #+#    #+#             */
+/*   Updated: 2020/03/09 18:22:03 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+int	ft_numlength(long n)
 {
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	int		len;
+
+	len = 0;
+	if (n < 0)
+	{
+		len++;
+		n *= -1;
+	}
+	while (n > 9)
+	{
+		n = n / 10;
+		len++;
+	}
+	len++;
+	return (len);
 }

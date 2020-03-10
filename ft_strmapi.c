@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 19:37:26 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:06:22 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 19:06:05 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 
 	i = 0;
-	str = (char *)malloc(sizeof(*s));
+	if(!(str = (char *)malloc(sizeof(char) * ft_strlen((char*)s))))
+		return (NULL);
 	while (*s)
 	{
-		*str = f(i, *s);
-		str++;
+		str[i] = f(i, *s);
 		i++;
 		s++;
 	}
-	*str = '\0';
+	str[i] = '\0';
 	return (str);
 }

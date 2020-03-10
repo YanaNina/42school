@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:30:16 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:36:38 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 15:17:47 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 char	*ft_strnew(size_t size)
 {
-	char *s = NULL;
+	char *s;
 
+	s = NULL;
 	if (!(char*)malloc(sizeof(*s) * (size + 1)))
 		return (NULL);
 	ft_bzero(s, size + 1);

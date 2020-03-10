@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/25 18:14:47 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 18:05:20 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 17:51:29 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,14 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int	len;
 
-	i = 0;
-	while (*s != '\0')
-		s++;
-	s--;
-	while (*s)
+	len = ft_strlen((char*)s);
+	while (len >= 0)
 	{
-		if (*s == c)
-			return ((char*)s);
-		s--;
+		if (s[len] == c)
+			return ((char *)(s + len));
+		len--;
 	}
 	return (0);
 }

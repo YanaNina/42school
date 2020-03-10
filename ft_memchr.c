@@ -6,7 +6,7 @@
 /*   By: ynina <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/28 15:31:49 by ynina             #+#    #+#             */
-/*   Updated: 2020/03/03 16:10:38 by ynina            ###   ########.fr       */
+/*   Updated: 2020/03/09 18:00:24 by ynina            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	str = (unsigned char *)s;
 	while (n > 0)
 	{
-		if (*str != c)
+		if (*str != (unsigned char)c)
 		{
 			str++;
 			n--;
 		}
 		else
-			return (str);
+			return ((void*)str);
 	}
 	return (0);
 }
