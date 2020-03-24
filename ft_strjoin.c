@@ -23,19 +23,9 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	j = 0;
 	len = (ft_strlen((char*)s1) + ft_strlen((char*)s2) + 1);
 	new_string = (char*)malloc(sizeof(char) * len);
-	if (!new_string)
+	if (!new_string || !s1 || !s2)
 		return (0);
-	while (s1[i])
-	{
-		new_string[i] = s1[i];
-		i++;
-	}
-	while (s2[j])
-	{
-		new_string[i] = s2[j];
-		i++;
-		j++;
-	}
-	new_string[i] = '\0';
+	ft_strcpy(new_string, (char *)s1);
+	ft_strcat(new_string, (char *)s2);
 	return (new_string);
 }

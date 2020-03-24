@@ -16,10 +16,12 @@ int		ft_atoi(const char *str)
 {
 	int result;
 	int sign;
+	unsigned long max;
 
+	max = 9223372036854775807;
 	result = 0;
 	sign = 1;
-	while (*str < 32)
+	while (*str == '\t' || *str == '\v' || *str == '\n' || *str == '\f' || *str == '\r' || *str == ' ')
 		str++;
 	if (*str == '-')
 		sign = -1;
@@ -29,6 +31,12 @@ int		ft_atoi(const char *str)
 	{
 		result = (result * 10) + (*str - '0');
 		str++;
+	}
+	if ((unsigned long)result > max &&  result != -2147483648)
+	{
+		if (sign == 1)
+			return (-1);
+		return (0);
 	}
 	return (result * sign);
 }

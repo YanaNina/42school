@@ -23,10 +23,12 @@ static int	ft_words(char const *s, char c)
 			s++;
 		if (*s != c && *s != '\0')
 		{
-			while (*s != c)
+			while (*s != c && *s != '\0')
 				s++;
 			words++;
 		}
+		if (*s == '\0')
+			break;
 		s++;
 	}
 	return (words);
@@ -49,23 +51,31 @@ char		**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;
+	int		len;
 	char	**ar;
 
 	i = 0;
 	j = 0;
-	if (!s || (!(ar = (char**)malloc(sizeof(char*) * (ft_words(s, c) + 1)))))
+	len = ft_words(s, c);
+
+	if (!s || (!(ar = (char**)malloc(sizeof(char*) * (len + 1)))))
 		return (NULL);
-	while (*s)
+	while (*s != '\0' && len > 0)
 	{
-		while (*s && *s == c)
-			s++;
-		if (!(ar[j] = (char*)malloc(sizeof(char) * (ft_wlen(s, c) + 1))))
-			return (NULL);
-		while (*s && *s != c)
-			ar[j][i++] = *s++;
-		ar[j][i] = '\0';
-		j++;
-		i = 0;
+		if (*s != c)	
+		{
+			if (!(ar[j] = (char*)malloc(sizeof(char) * (ft_wlen(s, c) + 1))))
+				return (NULL);
+			while (*s && *s != c)
+				ar[j][i++] = *s++;
+			ar[j][i] = '\0';
+			j++;
+			if (j >= len)
+				break;
+			i = 0;
+		}
+		s++;
 	}
+	ar[j] = NULL;
 	return (ar);
 }

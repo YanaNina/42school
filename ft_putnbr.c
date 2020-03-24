@@ -19,6 +19,7 @@ void	ft_putnbr(int n)
 		ft_putchar('-');
 		ft_putchar('2');
 		ft_putnbr(147483648);
+		return;
 	}
 	else if (n < 0)
 	{

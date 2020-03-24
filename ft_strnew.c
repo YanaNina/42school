@@ -16,9 +16,9 @@ char	*ft_strnew(size_t size)
 {
 	char *s;
 
-	s = NULL;
-	if (!(char*)malloc(sizeof(*s) * (size + 1)))
-		return (NULL);
+	s = (char*)malloc(sizeof(*s) * (size + 1));
+	if (s == '\0')
+		return (0);
 	ft_bzero(s, size + 1);
 	return (s);
 }

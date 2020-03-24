@@ -15,18 +15,16 @@
 char	*ft_strdup(char *s)
 {
 	int		i;
-	int		j;
 	char	*s1;
 
-	i = 0;
-	j = 0;
-	while (s[i] != '\0')
-		i++;
-	s1 = (char*)malloc(sizeof(char) * (i + 1));
-	while (s[j] != '\0')
+	i = 0;	
+	if (!(s1 = (char*)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (0);	
+	while (s[i])
 	{
-		s1[j] = s[j];
-		j++;
+		s1[i]  = s[i];
+		i++;
 	}
+	s1[i] = '\0';
 	return (s1);
 }
