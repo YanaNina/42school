@@ -21,9 +21,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 
 	i = 0;
 	j = 0;
+	if (!s1 || !s2)
+		return (0);
 	len = (ft_strlen((char*)s1) + ft_strlen((char*)s2) + 1);
 	new_string = (char*)malloc(sizeof(char) * len);
-	if (!new_string || !s1 || !s2)
+	if (!new_string)
 		return (0);
 	ft_strcpy(new_string, (char *)s1);
 	ft_strcat(new_string, (char *)s2);

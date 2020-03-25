@@ -21,9 +21,9 @@ char	*ft_strtrim(char const *s)
 
 	i = 0;
 	j = 0;
-	len = ft_strlen((char*)s);
 	if (!s)
 		return (NULL);
+	len = ft_strlen((char*)s);
 	while (*s && (s[len - 1] == ' ' || s[len - 1] == '\n' || s[len - 1] == '\t'))
 		len--;
 	while (*s && (s[i] == ' ' || s[i] == '\n' || s[i] == '\t'))

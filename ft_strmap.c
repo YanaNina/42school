@@ -18,17 +18,18 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		i;
 	int		len;
 
-	len = ft_strlen((char *)s);
 	i = 0;
 	if (!s || !f)
 		return (0);
-	if(!(str = (char *)malloc(sizeof(char) * (len + 1))))
-		return (0);
-	while (s[i])
+	len = ft_strlen((char *)s);
+	if ((str = (char *)malloc(sizeof(char) * (len + 1))))
 	{
-		str[i] = f(s[i]);
-		i++;
+		while (s[i])
+		{
+			str[i] = f(s[i]);
+			i++;
+		}
+		str[i] = '\0';
 	}
-	str[i] = '\0';
 	return (str);
 }

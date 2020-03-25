@@ -16,16 +16,16 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 {
 	t_list *link;
 
-	if (!(link = (t_list*)malloc(sizeof(*link))))
+	if (!(link = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
-	if (content == NULL)
+	if (!content)
 	{
 		link->content = NULL;
 		link->content_size = 0;
 	}
 	else
 	{
-		if (!(link->content = malloc(content_size)))
+		if (!(link->content = ft_memalloc(content_size)))
 		{
 			free(link);
 			return (NULL);
@@ -34,5 +34,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		link->content_size = content_size;
 	}
 	link->next = NULL;
+	free(link);
 	return (link);
 }
