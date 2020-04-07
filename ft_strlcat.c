@@ -10,6 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
+0 :  abc 4
+1:   abc 5
+2:   abc 6
+3:   abc 7
+
+4:   abc 7
+5:   abco 7
+6:   abcop 7
+7:   abcopq 7
+8:   abcopqr  7
+9:   abcopqr   7
+*/
+
 #include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
